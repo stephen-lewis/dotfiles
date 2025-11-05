@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+event=$1
+device=$2
+appname="mdadm"
+
+if [ $event == "DeviceDisappeared" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device has disappeared"
+else if [ $event == "RebuildStarted" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device has started rebuild"
+else if [ $event == "RebuildFinished" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device has finished rebuilding"
+else if [ $event == "Fail" ]; then
+    notify-send --app-name=$appname --urgency=critical "message message "RAID device $device has failed"
+else if [ $event == "FailSpare" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device - failure on spare"
+else if [ $event == "SpareActive" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device - spare now active"
+else if [ $event == "NewArray" ]; then
+    notify-send --app-name=$appname --urgency=critical "New RAID device $device detected"
+else if [ $event == "DegradedArray" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device is degraded"
+else if [ $event == "MoveSpare" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device - spare transferred to prevent failure"
+else if [ $event == "SparesMissing" ]; then
+    notify-send --app-name=$appname --urgency=critical "RAID device $device is missing expected spares"
+else if [ $event == "TestMessage" ]; then
+    notify-send --app-name=$appname --urgency=critical "Test RAID monitoring notification"
+else
+   notify-send --app-name=$appname --urgency=critical "Unknown RAID notification '$event' for $device"
+fi
+

@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <project_name>"
+    exit 1
+fi
+
+PROJ_DIR=$HOME/projects/$1
+
+if [ ! -d "$PROJ_DIR" ]; then
+    echo "$1 does not exist in ~/projects"
+    exit 2
+fi
+
+cd $PROJ_DIR
+
+export PATH="$PROJ_DIR/tools:$PATH"
+
+if [ -f "$PROJ_DIR/tools/.initrc" ]; then
+    echo "Found tools/.initrc"
+    . $PROJ_DIR/tools/.initrc
+fi
+
+if [ -f "$PROJ_DIR/.env" ]; then
+    echo "Found .env"
+    export $(grep -v '^#' "$PROJ_DIR/.env" | xargs)
+fi
+
+if [ -f "$PROJ_DIR/.env.local" ]; then
+    echo "Found .env.local"
+    export $(grep -v '^#' "$PROJ_DIR/.env.local" | xargs)
+fi
+
+nvim $PROJ_DIR
+
