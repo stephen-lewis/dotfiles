@@ -1,4 +1,4 @@
-#export GEM_HOME="$(gem env user_gemhome)"
+export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$HOME/.local/bin:$PATH:$GEM_HOME/bin"
 
 export LESS='-R --use-color -Dd+r$Du+b$'
