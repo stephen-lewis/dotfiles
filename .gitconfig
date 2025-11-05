@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = main
+[user]
+	email = mail@stephen-lewis.me.uk
+	name = Stephen Lewis
+	signingkey = 8A362597B68FA73F
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
