@@ -4,3 +4,5 @@ hyprctl keyword monitor DVI-D-1,2560x1440x60.0, 2560x0, 1.0
 hyprctl keyword monitor HDMI-A-1,3840x2160@60.0, 0x0, 1.5
 hyprctl dispatch moveworkspacetomonitor 2 HDMI-A-1
 hyprctl dispatch moveworkspacetomonitor 1 HDMI-A-1
+hyprctl reload config-only
+

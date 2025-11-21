@@ -4,5 +4,5 @@ hyprctl dispatch moveworkspacetomonitor 1 DVI-D-1
 hyprctl dispatch moveworkspacetomonitor 2 DVI-D-1
 hyprctl keyword monitor HDMI-A-1,disable
 hyprctl keyword monitor DVI-D-1,2560x1440x60.0, 0x0, 1.0
-
+hyprctl reload config-only
 sudo virsh start win11
